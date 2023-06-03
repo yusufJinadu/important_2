@@ -3,7 +3,19 @@ on:
   pull_request:
     types:
       - opened
+    branches:
+      - main
+      - 'devs-*' #devs-new devs-this-is-new
+      - 'reds/**' #reds/new reds/this/is/new
+    
   workflow_dispatch:
+  push: 
+    branches:
+      - main
+      - 'devs-*' #devs-new devs-this-is-new
+      - 'reds/**' #reds/new reds/this/is/new
+    paths-ignore:
+      - '.github/workflows/*'
 jobs:
   deploy:
     runs-on: ubuntu-latest
